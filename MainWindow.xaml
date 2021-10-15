@@ -6,37 +6,87 @@
         xmlns:local="clr-namespace:FormularioStackPanel"
         mc:Ignorable="d"
         Title="FormularioStackPanel" Height="450" Width="800" MinWidth="300">
-    <Border Padding="10">
-        <StackPanel>
-            <StackPanel Margin="10">
-                <StackPanel.Background>
+
+    <Window.Resources>
+        <Style TargetType="{x:Type Border}">
+            <Setter Property="Padding" Value="10"></Setter>
+        </Style>
+        
+        <Style TargetType="{x:Type StackPanel}">
+            <Setter Property="Margin" Value="10"></Setter>
+        </Style>
+
+        <Style TargetType="{x:Type StackPanel}" x:Key="NombreStackPanel" BasedOn="{StaticResource {x:Type StackPanel}}">
+            <Setter Property="Background">
+                <Setter.Value>
                     <LinearGradientBrush EndPoint="0.5, 1" StartPoint="0.5, 0">
                         <GradientStop Color="White" Offset="0.737"/>
                         <GradientStop Color="#FFD44646" Offset="0.093"/>
                     </LinearGradientBrush>
-                </StackPanel.Background>
-                <TextBlock Margin="5" FontWeight="Bold" FontSize="16">Nombre</TextBlock>
-                <TextBox HorizontalAlignment="Stretch"  Margin="5"></TextBox>
-            </StackPanel>
-            <StackPanel Margin="10">
-                <StackPanel.Background>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type StackPanel}" x:Key="DireccionStackPanel" BasedOn="{StaticResource {x:Type StackPanel}}">
+            <Setter Property="Background">
+                <Setter.Value>
                     <LinearGradientBrush EndPoint="0.5, 1"  StartPoint="0.5, 0">
                         <GradientStop Color="White" Offset="0.737"/>
                         <GradientStop Color="Yellow" Offset="0.093"/>
                     </LinearGradientBrush>
-                </StackPanel.Background>
-                <TextBlock Margin="10" FontWeight="Bold" Text="Direccion" FontSize="16"/>
-                <TextBox HorizontalAlignment="Stretch" Margin="5"></TextBox>
-             </StackPanel>
-            <StackPanel Margin="10">
-                <StackPanel.Background>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type StackPanel}" x:Key="CorreoStackPanel" BasedOn="{StaticResource {x:Type StackPanel}}">
+            <Setter Property="Background">
+                <Setter.Value>
                     <LinearGradientBrush EndPoint="0.5, 1"  StartPoint="0.5, 0">
                         <GradientStop Color="White" Offset="0.737"/>
                         <GradientStop Color="Orange" Offset="0.093"/>
                     </LinearGradientBrush>
-                </StackPanel.Background>
-                <TextBlock Margin="10" FontWeight="Bold" Text="Correo electronico" FontSize="16"/>
-                <TextBox Margin="10" HorizontalAlignment="Left" Width="500"></TextBox>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type TextBlock}" x:Key="NombreTextBlock">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+        </Style>
+
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+        </Style>
+
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+        </Style>
+
+        <Style TargetType="{x:Type TextBox}" x:Key="CorreoTextBox">
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="Width" Value="500"></Setter>
+        </Style>
+
+    </Window.Resources>
+    
+    <Border>
+        <StackPanel>
+            <StackPanel Style="{StaticResource NombreStackPanel}">
+                <TextBlock Style="{StaticResource NombreTextBlock}">Nombre</TextBlock>
+                <TextBox></TextBox>
+            </StackPanel>
+            <StackPanel Style="{StaticResource DireccionStackPanel}">
+                <TextBlock>Direccion</TextBlock>
+                <TextBox></TextBox>
+             </StackPanel>
+            <StackPanel Style="{StaticResource CorreoStackPanel}">
+                <TextBlock>Correo electronico</TextBlock>
+                <TextBox Style="{StaticResource CorreoTextBox}"></TextBox>
             </StackPanel>
         </StackPanel>
     </Border>
